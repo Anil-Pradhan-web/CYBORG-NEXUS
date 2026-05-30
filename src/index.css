@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: #050816;
+  --color-card: rgba(255, 255, 255, 0.03);
+  --color-primary: #00F5FF;
+  --color-secondary: #7B2FFF;
+  --color-accent: #FF00AA;
+  --color-text: #FFFFFF;
+  --color-muted: #8A99AD;
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: #050816;
+    color: #FFFFFF;
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Orbitron", sans-serif;
+  }
+}
+
+/* Custom scrollbar to match futuristic aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050816;
+}
+::-webkit-scrollbar-thumb {
+  background: #7B2FFF;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00F5FF;
+}
+
+/* Futuristic neon utility classes */
+.neon-glow-primary {
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.35);
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+}
+
+.neon-glow-secondary {
+  box-shadow: 0 0 15px rgba(123, 47, 255, 0.35);
+  text-shadow: 0 0 10px rgba(123, 47, 255, 0.5);
+}
+
+.neon-glow-accent {
+  box-shadow: 0 0 15px rgba(255, 0, 170, 0.35);
+  text-shadow: 0 0 10px rgba(255, 0, 170, 0.5);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(0, 245, 255, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(0, 245, 255, 0.15);
+}
+
+/* Animating dash offset for circuits */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+.circuit-line {
+  stroke-dasharray: 10, 10;
+  animation: dash 10s linear infinite;
+}
