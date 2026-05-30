@@ -5,6 +5,8 @@ import Timeline from './components/Timeline';
 import Features from './components/Features';
 import Stats from './components/Stats';
 import Architecture from './components/Architecture';
+import Testimonials from './components/Testimonials';
+import Advisors from './components/Advisors';
 import Vision from './components/Vision';
 import CTA from './components/CTA';
 
@@ -23,8 +25,8 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen text-white select-none">
-      {/* Dynamic Background */}
+    <div className="relative min-h-screen text-white select-none bg-[#050816]">
+      {/* Background Neural Network */}
       <NeuralCanvas />
 
       {/* Hero section */}
@@ -35,22 +37,28 @@ function App() {
 
       {/* Main Content Layout */}
       <main className="space-y-12 pb-16">
-        {/* Section 2: Human -> Cyborg Evolution Timeline */}
+        {/* Section 2: Clinical to Consumer Roadmap Timeline */}
         <Timeline />
 
-        {/* Section 3: Technology Modules Grid */}
+        {/* Section 3: Technology Applications Modules Grid */}
         <Features />
 
-        {/* Section 4: Performance Statistics & Custom SVG illustration */}
+        {/* Section 4: Specifications & Specifications stats */}
         <Stats />
 
         {/* Section 5: Synaptic Architecture node map */}
         <Architecture />
 
-        {/* Section 6: Future corporate horizons grid */}
+        {/* Section 6: Patient Case Studies & Developer Testimonials */}
+        <Testimonials />
+
+        {/* Section 7: Scientific & Ethical Advisory Board */}
+        <Advisors />
+
+        {/* Section 8: Future corporate horizons grid */}
         <Vision />
 
-        {/* Section 7: Final evolutionary call to action & Terminal signup dialog */}
+        {/* Section 9: Final waitlist action & Terminal calibration dialog */}
         <CTA 
           isOpen={isModalOpen} 
           setIsOpen={setIsModalOpen} 

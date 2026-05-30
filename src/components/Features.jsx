@@ -1,39 +1,39 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Network, Activity, Zap, ShieldCheck } from 'lucide-react';
+import { Accessibility, Terminal, ShieldAlert, Radio } from 'lucide-react';
 
 const techModules = [
   {
-    title: "Neural Sync",
-    desc: "Establish instantaneous, bi-directional coupling between cerebral synaptic pathways and artificial intelligence networks.",
-    icon: Network,
-    glowColor: "rgba(0, 245, 255, 0.4)", // Cyan
+    title: "Motor Assistive Bridge",
+    desc: "Restores digital autonomy for patients with motor paralysis. Decodes neural intention into keyboard, mouse, and external hardware triggers.",
+    icon: Accessibility,
+    glowColor: "rgba(0, 245, 255, 0.4)",
     borderColor: "rgba(0, 245, 255, 0.2)",
-    label: "Duplex Link"
+    label: "Assistive Tech"
   },
   {
-    title: "Bio Augmentation",
-    desc: "Overhaul and augment physical constraints using advanced motor neural implants and high-grade molecular structures.",
-    icon: Activity,
-    glowColor: "rgba(123, 47, 255, 0.4)", // Purple
+    title: "Advanced Neural Decoding",
+    desc: "Adapts deep learning algorithms to translate neural electrical impulses into high-accuracy actions with less than 10 minutes of calibration.",
+    icon: Terminal,
+    glowColor: "rgba(123, 47, 255, 0.4)",
     borderColor: "rgba(123, 47, 255, 0.2)",
-    label: "Soma Upgrade"
+    label: "Cortex NLP"
   },
   {
-    title: "Quantum Processing",
-    desc: "Accelerate mental computing capacity and decision trees utilizing localized sub-cortex quantum core integration.",
-    icon: Zap,
-    glowColor: "rgba(255, 0, 170, 0.4)", // Pink
+    title: "Data Sovereignty & Privacy",
+    desc: "Secures synaptic outputs via localized on-device encryption. Raw neural signals are processed inside personal hardware and never stored on cloud servers.",
+    icon: ShieldAlert,
+    glowColor: "rgba(255, 0, 170, 0.4)",
     borderColor: "rgba(255, 0, 170, 0.2)",
-    label: "Cognitive Boost"
+    label: "Privacy First"
   },
   {
-    title: "Cyber Security",
-    desc: "Enforce state-of-the-art cryptographic encryptions protecting neural memory buffers and personal digital soul assets.",
-    icon: ShieldCheck,
-    glowColor: "rgba(0, 245, 255, 0.4)", // Cyan
+    title: "Wireless Bio-Telemetry",
+    desc: "Utilizes sub-dermal low-energy Bluetooth telemetry and wireless induction recharging, providing 24 hours of autonomous device communication.",
+    icon: Radio,
+    glowColor: "rgba(0, 245, 255, 0.4)",
     borderColor: "rgba(0, 245, 255, 0.2)",
-    label: "Shield Active"
+    label: "Safe Power"
   }
 ];
 
@@ -52,18 +52,15 @@ const TiltCard = ({ module, index }) => {
     const width = rect.width;
     const height = rect.height;
     
-    // Calculate mouse position relative to card center
     const x = e.clientX - rect.left - width / 2;
     const y = e.clientY - rect.top - height / 2;
 
-    // Convert mouse position to degrees of rotation (max 10 degrees)
-    const rotX = (-y / (height / 2)) * 8;
-    const rotY = (x / (width / 2)) * 8;
+    const rotX = (-y / (height / 2)) * 6;
+    const rotY = (x / (width / 2)) * 6;
 
     setRotateX(rotX);
     setRotateY(rotY);
 
-    // Calculate mouse percentage for gradient background glow positions
     const glowX = ((e.clientX - rect.left) / width) * 100;
     const glowY = ((e.clientY - rect.top) / height) * 100;
     setGlowPosition({ x: glowX, y: glowY });
@@ -84,7 +81,7 @@ const TiltCard = ({ module, index }) => {
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: 40 },
+        hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0 }
       }}
       transition={{ duration: 0.6, type: "spring", stiffness: 80 }}
@@ -94,12 +91,12 @@ const TiltCard = ({ module, index }) => {
       onMouseLeave={handleMouseLeave}
       style={{
         transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-        transition: isHovered ? 'none' : 'transform 0.5s ease-out',
+        transition: isHovered ? 'none' : 'transform 0.4s ease-out',
         borderColor: isHovered ? module.glowColor.replace('0.4', '0.6') : 'rgba(255, 255, 255, 0.07)'
       }}
-      className="relative flex flex-col justify-between p-8 rounded-2xl glass-panel border h-[340px] overflow-hidden cursor-pointer group"
+      className="relative flex flex-col justify-between p-6 rounded-2xl glass-panel border min-h-[320px] overflow-hidden cursor-pointer group w-full"
     >
-      {/* Dynamic Hover Radial Light Overlay */}
+      {/* Dynamic Hover Glow */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
         style={{
@@ -107,45 +104,44 @@ const TiltCard = ({ module, index }) => {
         }}
       />
 
-      {/* Cyber Corner Grid Styling */}
-      <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-white/5 opacity-40 group-hover:opacity-100 group-hover:border-primary/20 transition-all duration-300" />
-      <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-white/5 opacity-40 group-hover:opacity-100 group-hover:border-primary/20 transition-all duration-300" />
+      {/* Grid Corner Decor */}
+      <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-white/5 opacity-30 group-hover:opacity-100 group-hover:border-primary/20 transition-all duration-300" />
+      <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-white/5 opacity-30 group-hover:opacity-100 group-hover:border-primary/20 transition-all duration-300" />
 
-      {/* Card Header */}
       <div>
         <div className="flex justify-between items-start mb-6">
           <div className="p-3 bg-white/5 rounded-xl border border-white/10 group-hover:border-white/20 transition duration-300">
             <Icon 
-              className="w-6 h-6 transition-transform duration-500 group-hover:rotate-6"
+              className="w-5 h-5 transition-transform duration-500 group-hover:rotate-6"
               style={{
                 color: isHovered ? '#FFFFFF' : module.glowColor.replace('0.4', '1'),
-                filter: isHovered ? `drop-shadow(0 0 8px ${module.glowColor})` : 'none'
+                filter: isHovered ? `drop-shadow(0 0 6px ${module.glowColor})` : 'none'
               }}
             />
           </div>
           
           <span 
-            className="text-[10px] font-orbitron font-semibold uppercase tracking-widest px-2 py-0.5 rounded border"
+            className="text-[9px] font-orbitron font-semibold uppercase tracking-widest px-2 py-0.5 rounded border"
             style={{ 
               color: isHovered ? '#FFFFFF' : module.glowColor.replace('0.4', '1'),
               borderColor: isHovered ? module.glowColor : 'rgba(255, 255, 255, 0.1)',
-              background: isHovered ? module.glowColor.replace('0.4', '0.1') : 'transparent'
+              background: isHovered ? module.glowColor.replace('0.4', '0.05') : 'transparent'
             }}
           >
             {module.label}
           </span>
         </div>
 
-        <h3 className="font-orbitron font-bold text-xl text-white mb-3 group-hover:text-primary transition duration-300">
+        <h3 className="font-orbitron font-bold text-lg text-white mb-2 group-hover:text-primary transition duration-300">
           {module.title}
         </h3>
         
-        <p className="font-inter text-muted text-sm leading-relaxed group-hover:text-white/80 transition duration-300">
+        <p className="font-inter text-muted text-xs sm:text-sm leading-relaxed group-hover:text-white/80 transition duration-300">
           {module.desc}
         </p>
       </div>
 
-      {/* Dynamic Glow Line Indicator at Bottom */}
+      {/* bottom indicator line */}
       <div className="w-full h-[1px] bg-white/10 mt-6 relative overflow-hidden">
         <div 
           className="absolute top-0 left-0 h-full w-full -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"
@@ -160,30 +156,30 @@ const TiltCard = ({ module, index }) => {
 
 const Features = () => {
   return (
-    <section id="technology" className="relative py-24 md:py-32 w-full max-w-7xl mx-auto px-4">
-      {/* Background radial highlight */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
+    <section id="technology" className="relative py-24 md:py-32 w-full max-w-7xl mx-auto px-4 bg-[#050816]">
+      {/* Background soft glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Title Header */}
       <div className="text-center mb-16 md:mb-24">
         <motion.p
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="font-orbitron text-xs tracking-[0.3em] text-primary mb-3 uppercase"
         >
-          Neural Integration Core
+          CORE APPLICATIONS
         </motion.p>
         
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-orbitron font-black text-3xl md:text-5xl text-white tracking-tight"
+          className="font-orbitron font-black text-2xl sm:text-4xl md:text-5xl text-white tracking-tight"
         >
-          TECHNOLOGY <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(123,47,255,0.2)]">MODULES</span>
+          NEURAL INTERFACE MODULES
         </motion.h2>
         
         <motion.div 
@@ -195,11 +191,11 @@ const Features = () => {
         />
       </div>
 
-      {/* Staggered Grid Layout */}
+      {/* Features Grid */}
       <motion.div 
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-80px" }}
         variants={{
           visible: {
             transition: {
@@ -207,7 +203,7 @@ const Features = () => {
             }
           }
         }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10 w-full"
       >
         {techModules.map((module, index) => (
           <TiltCard key={index} module={module} index={index} />
