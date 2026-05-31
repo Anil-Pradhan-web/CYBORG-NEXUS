@@ -15,3 +15,6 @@
 *   **Styling**: Tailwind CSS
 *   **Animation**: Framer Motion
 *   **Icons**: Lucide React
+
+
+DEMO VIDEO LINK-https://1drv.ms/v/c/cfc753341764aa1d/IQBAPOBJt9yFR55iM9z2ex74AYvWRpNOSwFjANvaDGW6wuQ?e=lK0fEh
